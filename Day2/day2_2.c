@@ -24,5 +24,7 @@ int main(){
 
     printf("There is %d valid passwords\n", num_valid);
 
+    fclose(file);
+
     return 0;
 }
