@@ -31,10 +31,6 @@ IO.readlines("input", chomp: true).each{ |instruct|
         x += waypoint[0] * val
         y += waypoint[1] * val
     end
-
-    puts "x : " + x.to_s + " y : " + y.to_s
 }
 
-puts x
-puts y
 puts x.abs + y.abs
