@@ -18,7 +18,7 @@ IO.readlines("input", chomp: true).each{ |instruct|
         # puts "After :  " + address.to_s
 
         # p address
-        # This block gives bit number in normal format [MSb..LSb] because Array.pop return element on the right (so pop return LSb)
+        # This block gives binary number in normal format [MSb..LSb] because Array.pop return element on the right (so pop return LSb)
         [0, 1].repeated_permutation(address.count("X")).each { |comb|
             # Reminder : temp_addr == [LSb..MSb]
             temp_addr = address.map{|bit| bit == "X" ? comb.pop : bit }.reverse.join.to_i(2)
