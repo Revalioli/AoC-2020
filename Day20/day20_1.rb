@@ -65,7 +65,6 @@ class Part
         @p7 = Piece.new(@p3.content.reverse)
         @p8 = Piece.new(@p4.content.reverse)
 
-        # @pieces = [@unflip, @Vflip, @Hflip, @HVflip]
         @pieces = [@p1, @p2, @p3, @p4, @p5, @p6, @p7, @p8]
         @id = id
         @count = 0
@@ -111,7 +110,15 @@ tiles.values.each { |part|
 
     part.update_count
 
+    p part.pieces.map{ |p| p.get_match_count}
+
     res << part.id if part.count == 2
 }
+
+puts "################"
+
+p res
+p tiles[2711].pieces.map{ |p| p.get_match_count}
+p tiles[2711].pieces[0].matchs.map(&:count)
 
 p res.reduce(&:*)
