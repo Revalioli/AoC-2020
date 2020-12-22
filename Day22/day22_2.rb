@@ -1,19 +1,19 @@
 #!/usr/bin/ruby
 
-$depth = 0
-$max = 0
+# $depth = 0
+# $max = 0
 
 # Return true if Player 1 won, false if Player 2 won
 def game p1, p2
     # puts "Starting game at depth #{$depth}"
+    # $depth += 1
+    # if $depth > $max
+    #     $max = $depth
+    #     puts "Reached depth #{$max}"
+    # end
 
-    previously_on_day_22 = []
+    previously_on_day_22 = {}
 
-    $depth += 1
-    if $depth > $max
-        $max = $depth
-        puts "Reached depth #{$max}"
-    end
 
     # Game loop
 
@@ -22,13 +22,13 @@ def game p1, p2
         # p previously_on_day_22
 
         # Checking decks constitution
-        if previously_on_day_22.include?([p1, p2])
-            $depth -= 1
+        if previously_on_day_22.key?([p1, p2])
+            # $depth -= 1
             return true # Player 1 won, omedetou !
         end
 
         # If it is a new configuration, it is stored
-        previously_on_day_22 << [p1.clone, p2.clone]
+        previously_on_day_22[[p1.clone, p2.clone]] = 0
 
         # Then the turn really starts here
         card1 = p1.pop
@@ -56,7 +56,7 @@ def game p1, p2
         end
     end
 
-    $depth -= 1
+    # $depth -= 1
 
     return p1.length != 0
 
