@@ -84,5 +84,7 @@ until turn == nb_turns
     to_delete.each { |tile| black_ones.delete(tile) }
     to_add.each { |tile| black_ones[tile] = 1}
 
-    puts "Turn n°#{turn} : #{black_ones.keys.count}"
+    # puts "Turn n°#{turn} : #{black_ones.count}"
 end
+
+puts " Turn n°#{nb_turns} : #{black_ones.count}"
